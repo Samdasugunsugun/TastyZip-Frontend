@@ -1,7 +1,7 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue';
+import TheWelcome from './TheWelcome.vue';
 import SearchEngine from '../components/SearchEngine.vue';
-import ResultView from '../components/ResultView.vue';
+import ResultView from './ResultView.vue';
 import { ref } from 'vue';
 import router from '../router';
 import itemResults from '../dummy';
