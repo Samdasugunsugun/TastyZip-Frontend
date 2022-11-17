@@ -1,7 +1,7 @@
 ---
 name: Feature request
-about: 할 일을 등록해 주세요
-title: "[Feat / Fix / Bug] 이슈 제목"
+about: 이슈를 등록해 주세요
+title: 이슈 제목을 입력해주세요
 labels: ''
 assignees: ''
 
