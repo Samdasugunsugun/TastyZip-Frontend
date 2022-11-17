@@ -25,7 +25,6 @@ Edit your settings.json
 
 ```json
 {
-  //...
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
