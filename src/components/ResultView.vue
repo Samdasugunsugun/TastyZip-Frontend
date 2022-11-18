@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { PropType } from 'vue';
 interface Item {
-  title: String;
-  location: String;
+  title: string;
+  location: string;
+  thumbnail: string;
+  review: string;
 }
 
 defineProps({
@@ -18,7 +20,18 @@ defineProps({
     <ul>
       <li v-for="item in itemList">
         <div>
-          <span> 이름: {{ item.title }} 위치: {{ item.location }} </span>
+          <img :src="item.thumbnail" alt="썸네일을 불러올 수 없습니다." />
+        </div>
+        <div>
+          <div>
+            {{ item.title }}
+          </div>
+          <div>
+            {{ item.location }}
+          </div>
+          <div>
+            {{ item.review }}
+          </div>
         </div>
       </li>
     </ul>
