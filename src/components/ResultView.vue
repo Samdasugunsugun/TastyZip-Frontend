@@ -2,9 +2,8 @@
 import { PropType } from 'vue';
 interface Item {
   title: string;
-  location: string;
+  representative: string;
   thumbnail: string;
-  review: string;
 }
 
 defineProps({
@@ -26,12 +25,7 @@ defineProps({
           <div>
             {{ item.title }}
           </div>
-          <div>
-            {{ item.location }}
-          </div>
-          <div>
-            {{ item.review }}
-          </div>
+          <div>대표 메뉴: {{ item.representative }}</div>
         </div>
       </li>
     </ul>
