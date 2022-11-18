@@ -9,12 +9,6 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
     },
-    {
-      path: '/result',
-      name: 'result',
-      props: { default: true, sidebar: false },
-      component: () => import('@/views/ResultView.vue'),
-    },
   ],
 });
 
