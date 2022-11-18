@@ -1,9 +1,8 @@
 <script setup>
 import TheWelcome from './TheWelcome.vue';
 import SearchEngine from '../components/SearchEngine.vue';
-import ResultView from './ResultView.vue';
+import ResultView from './ItemList.vue';
 import { ref } from 'vue';
-import router from '../router';
 import itemResults from '../data/dummy';
 
 const keyword = ref('');
