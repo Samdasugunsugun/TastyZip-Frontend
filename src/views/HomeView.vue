@@ -1,7 +1,7 @@
 <script setup>
 import ResultView from '../components/ResultView.vue';
 import { ref } from 'vue';
-import itemResults from '../dummy';
+import { itemResults, itemDetail } from '@/data/dummy';
 
 const keyword = ref('');
 const itemList = ref([]);

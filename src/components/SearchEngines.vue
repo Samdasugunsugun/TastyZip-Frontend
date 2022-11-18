@@ -4,7 +4,7 @@ import SearchEngine from '../components/SearchEngine.vue';
 import ResultView from './ResultView.vue';
 import { ref } from 'vue';
 import router from '../router';
-import itemResults from '../dummy';
+import itemResults from '../data/dummy';
 
 const keyword = ref('');
 const itemList = ref([]);
