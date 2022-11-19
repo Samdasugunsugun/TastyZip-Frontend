@@ -1,9 +1,9 @@
 <script setup>
-import { ref, computed } from 'vue';
-import { itemResults } from '@/data/dummy';
+import { ref } from 'vue';
+import { itemResults, itemDetail } from '@/data/dummy';
 import ItemList from '../components/ItemList.vue';
 import ItemDetail from '../components/ItemDetail.vue';
-import { itemDetail } from '../data/dummy';
+import { colorScheme } from '@/styles';
 
 const keyword = ref('');
 const itemList = ref([]);
@@ -25,16 +25,21 @@ function closeDetailView() {
 </script>
 
 <template>
-  <div
-    :class="detailedViewId > 0 ? 'toggleOnBackGround' : 'toggleOffBackGround'"
-  >
-    <div>
-      <input v-model="keyword" placeholder="검색어를 입력해주세요" />
-      <button @click="search">검색</button>
+  <div class="homeViewBody">
+    <div class="searchBarContainer">
+      <input
+        v-model="keyword"
+        class="input"
+        placeholder="검색어를 입력해주세요"
+      />
+      <button class="submit" @click="search">검색</button>
     </div>
     <div>{{ keyword }}</div>
-    <ItemList :itemList="itemList" :getDetail="getDetailView" />
+    <div class="searchResultContainer">
+      <ItemList :itemList="itemList" :getDetail="getDetailView" />
+    </div>
   </div>
+
   <div
     class="modal"
     v-if="detailedViewId > 0"
@@ -45,26 +50,100 @@ function closeDetailView() {
 </template>
 
 <style scoped>
-.toggleOnBackGround {
-  background-color: rgba(49, 45, 45, 0.608);
+.homeViewBody {
+  width: 100%;
+  height: 100%;
+  background-color: v-bind('colorScheme.COLOR_D');
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.toggleOffBackGround {
-  background-color: aliceblue;
+.searchBarContainer {
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: white;
+  border: 2px solid;
+  border-color: v-bind('colorScheme.COLOR_B');
+  border-radius: 5px;
 }
 
-.modal {
-  width: 50vw;
-  height: 50vw;
+.searchResultContainer {
+  width: 80%;
+  height: 80%;
+  overflow-y: scroll;
+  scrollbar-width: 0;
+  margin: 20px;
+  padding: 20px 20px;
   background-color: white;
-  border: 1px solid red;
+  border: 5px solid;
+  border-radius: 20px;
+  border-color: v-bind('colorScheme.COLOR_A');
+}
+
+.searchResultContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.input {
+  min-width: 200px;
+  min-height: 30px;
+  max-width: 1000px;
+  font-size: 20px;
+  text-align: center;
+  margin: 15px auto;
+  border: 2px solid;
+  border-color: v-bind('colorScheme.COLOR_A');
+  border-radius: 4px;
+  transition: 0.2s ease-out;
+  outline: none;
+}
+
+.input:focus {
+  border: 3px solid;
+  border-color: v-bind('colorScheme.COLOR_B');
+}
+
+.submit {
+  min-width: 40px;
+  min-height: 30px;
+  margin: 2px;
+  padding: 4px auto;
+  border-radius: 4px;
+  background: #fff;
+  border: 2px solid;
+  border-color: v-bind('colorScheme.COLOR_A');
+  color: v-bind('colorScheme.COLOR_A');
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s ease-out;
+}
+
+.submit:hover,
+.submit:focus {
+  background: v-bind('colorScheme.COLOR_B');
+  border: 2px solid;
+  border-color: v-bind('colorScheme.COLOR_D');
+  color: #fff;
+  outline: 0;
+}
+.modal {
+  width: 65vw;
+  height: 65vw;
+  background-color: v-bind('colorScheme.COLOR_D');
   z-index: 1;
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  border: 2px solid;
+  border-color: v-bind('colorScheme.COLOR_A');
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+}
+.modal::-webkit-scrollbar {
+  display: none;
 }
 </style>
