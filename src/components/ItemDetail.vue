@@ -38,7 +38,11 @@ nextTick(() => {
   <div>
     <h3>매장 id: {{ itemId }}</h3>
     <h4 v-if="selectedItemDetail != null">
+      <img :src="selectedItemDetail.images[0]" />
+      <br />
       매장 이름: {{ selectedItemDetail.title }}
+      <br />
+      매장 연락처: {{ selectedItemDetail.contact }}
     </h4>
 
     <p>자세한 매장 정보가 등록되어 있습니다.</p>
