@@ -26,7 +26,8 @@ function closeDetailView() {
 
 <template>
   <div
-    :class="detailedViewId > 0 ? 'toggleOnBackGround' : 'toggleOffBackGround'"
+    class="homeViewBody"
+    :class="detailedViewId > 0 ? 'toggleOnBackGround' : ''"
   >
     <div>
       <input v-model="keyword" placeholder="검색어를 입력해주세요" />
@@ -37,7 +38,6 @@ function closeDetailView() {
   </div>
   <div
     class="modal"
-    v-bind:style="{ backgroundColor: colorScheme.COLOR_B }"
     v-if="detailedViewId > 0"
     v-click-outside="closeDetailView"
   >
@@ -46,17 +46,19 @@ function closeDetailView() {
 </template>
 
 <style scoped>
+.homeViewBody {
+  width: 100%;
+  height: 100%;
+  background-color: v-bind('colorScheme.COLOR_D');
+}
 .toggleOnBackGround {
   background-color: rgba(49, 45, 45, 0.608);
-}
-.toggleOffBackGround {
-  background-color: aliceblue;
 }
 
 .modal {
   width: 50vw;
   height: 50vw;
-  background-color: white;
+  background-color: v-bind('colorScheme.COLOR_D');
   z-index: 1;
   position: absolute;
   top: 50%;
