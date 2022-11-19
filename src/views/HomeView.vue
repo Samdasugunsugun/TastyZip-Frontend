@@ -3,6 +3,7 @@ import { ref, computed } from 'vue';
 import { itemResults } from '@/data/dummy';
 import ItemList from '../components/ItemList.vue';
 import ItemDetail from '../components/ItemDetail.vue';
+import { colorScheme } from '@/styles';
 
 const keyword = ref('');
 const itemList = ref([]);
@@ -36,6 +37,7 @@ function closeDetailView() {
   </div>
   <div
     class="modal"
+    v-bind:style="{ backgroundColor: colorScheme.COLOR_B }"
     v-if="detailedViewId > 0"
     v-click-outside="closeDetailView"
   >
