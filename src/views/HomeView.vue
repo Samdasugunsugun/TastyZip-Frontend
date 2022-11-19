@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { itemResults } from '@/data/dummy';
+import { itemResults, itemDetail } from '@/data/dummy';
 import ItemList from '../components/ItemList.vue';
 import ItemDetail from '../components/ItemDetail.vue';
 import { colorScheme } from '@/styles';
