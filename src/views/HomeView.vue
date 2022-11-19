@@ -29,7 +29,7 @@ function closeDetailView() {
     class="homeViewBody"
     :class="detailedViewId > 0 ? 'toggleOnBackGround' : ''"
   >
-    <div>
+    <div class="searchBarContainer">
       <input
         v-model="keyword"
         class="input"
@@ -38,7 +38,9 @@ function closeDetailView() {
       <button class="submit" @click="search">검색</button>
     </div>
     <div>{{ keyword }}</div>
-    <ItemList :itemList="itemList" :getDetail="getDetailView" />
+    <div class="searchResultContainer">
+      <ItemList :itemList="itemList" :getDetail="getDetailView" />
+    </div>
   </div>
   <div
     class="modal"
@@ -57,7 +59,31 @@ function closeDetailView() {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+}
+.searchBarContainer {
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: white;
+  border: 2px solid;
+  border-color: v-bind('colorScheme.COLOR_B');
+  border-radius: 5px;
+}
+
+.searchResultContainer {
+  width: 80%;
+  height: 80%;
+  overflow-y: scroll;
+  scrollbar-width: 0;
+  margin: 20px;
+  padding: 20px 20px;
+  background-color: white;
+  border: 5px solid;
+  border-radius: 20px;
+  border-color: v-bind('colorScheme.COLOR_A');
+}
+
+#searchResultContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .input {
