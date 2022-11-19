@@ -3,6 +3,7 @@ import { ref, computed } from 'vue';
 import { itemResults } from '@/data/dummy';
 import ItemList from '../components/ItemList.vue';
 import ItemDetail from '../components/ItemDetail.vue';
+import { itemDetail } from '../data/dummy';
 
 const keyword = ref('');
 const itemList = ref([]);
@@ -55,6 +56,7 @@ function closeDetailView() {
   width: 50vw;
   height: 50vw;
   background-color: white;
+  border: 1px solid red;
   z-index: 1;
   position: absolute;
   top: 50%;
