@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import internal from 'stream';
 import { PropType } from 'vue';
 interface Item {
   id: number;

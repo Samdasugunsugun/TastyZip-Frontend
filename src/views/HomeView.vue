@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { itemResults } from '@/data/dummy';
 import ItemList from '../components/ItemList.vue';
 import ItemDetail from '../components/ItemDetail.vue';
@@ -30,8 +30,12 @@ function closeDetailView() {
     :class="detailedViewId > 0 ? 'toggleOnBackGround' : ''"
   >
     <div>
-      <input v-model="keyword" placeholder="검색어를 입력해주세요" />
-      <button @click="search">검색</button>
+      <input
+        v-model="keyword"
+        class="input"
+        placeholder="검색어를 입력해주세요"
+      />
+      <button class="submit" @click="search">검색</button>
     </div>
     <div>{{ keyword }}</div>
     <ItemList :itemList="itemList" :getDetail="getDetailView" />
@@ -50,7 +54,55 @@ function closeDetailView() {
   width: 100%;
   height: 100%;
   background-color: v-bind('colorScheme.COLOR_D');
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+.input {
+  min-width: 200px;
+  min-height: 30px;
+  max-width: 1000px;
+  font-size: 20px;
+  text-align: center;
+  margin: 15px auto;
+  border: 2px solid;
+  border-color: v-bind('colorScheme.COLOR_A');
+  border-radius: 4px;
+  transition: 0.2s ease-out;
+  outline: none;
+}
+
+.input:focus {
+  border: 3px solid;
+  border-color: v-bind('colorScheme.COLOR_B');
+}
+
+.submit {
+  min-width: 40px;
+  min-height: 30px;
+  margin: 2px;
+  padding: 4px auto;
+  border-radius: 4px;
+  background: #fff;
+  border: 2px solid;
+  border-color: v-bind('colorScheme.COLOR_A');
+  color: v-bind('colorScheme.COLOR_A');
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s ease-out;
+}
+
+.submit:hover,
+.submit:focus {
+  background: v-bind('colorScheme.COLOR_B');
+  border: 2px solid;
+  border-color: v-bind('colorScheme.COLOR_D');
+  color: #fff;
+  outline: 0;
+}
+
 .toggleOnBackGround {
   background-color: rgba(49, 45, 45, 0.608);
 }
