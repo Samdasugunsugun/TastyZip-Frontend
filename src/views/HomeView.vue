@@ -25,10 +25,7 @@ function closeDetailView() {
 </script>
 
 <template>
-  <div
-    class="homeViewBody"
-    :class="detailedViewId > 0 ? 'toggleOnBackGround' : ''"
-  >
+  <div class="homeViewBody">
     <div class="searchBarContainer">
       <input
         v-model="keyword"
@@ -42,6 +39,7 @@ function closeDetailView() {
       <ItemList :itemList="itemList" :getDetail="getDetailView" />
     </div>
   </div>
+
   <div
     class="modal"
     v-if="detailedViewId > 0"
@@ -82,7 +80,7 @@ function closeDetailView() {
   border-color: v-bind('colorScheme.COLOR_A');
 }
 
-#searchResultContainer::-webkit-scrollbar {
+.searchResultContainer::-webkit-scrollbar {
   display: none;
 }
 
@@ -128,23 +126,24 @@ function closeDetailView() {
   color: #fff;
   outline: 0;
 }
-
-.toggleOnBackGround {
-  background-color: rgba(49, 45, 45, 0.608);
-}
-
 .modal {
-  width: 50vw;
-  height: 50vw;
+  width: 65vw;
+  height: 65vw;
   background-color: v-bind('colorScheme.COLOR_D');
   z-index: 1;
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  border: 2px solid;
+  border-color: v-bind('colorScheme.COLOR_A');
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+}
+.modal::-webkit-scrollbar {
+  display: none;
 }
 </style>
