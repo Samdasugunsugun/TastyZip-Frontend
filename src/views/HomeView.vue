@@ -127,8 +127,8 @@ function closeDetailView() {
   outline: 0;
 }
 .modal {
-  width: 65vw;
-  height: 65vw;
+  width: 50%;
+  height: 50%;
   background-color: v-bind('colorScheme.COLOR_D');
   z-index: 1;
   position: absolute;
