@@ -11,7 +11,7 @@ const store = createStore({
       query: '',
       store: {
         id: 0,
-        name: '유흥유흥',
+        name: '유흥유흥d',
         category: '유흥업소',
         address: '서울특별시 성북구 고려대학교',
         score: 2.5,
