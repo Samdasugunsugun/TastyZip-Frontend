@@ -14,7 +14,7 @@ const store = createStore({
         name: '유흥유흥d',
         category: '유흥업소',
         address: '서울특별시 성북구 고려대학교',
-        score: 2.5,
+        rating: 2.5,
         lat: 37.3575704,
         lon: 127.102399,
       },
@@ -90,7 +90,7 @@ const store = createStore({
         name: '유흥유흥',
         category: '유흥업소',
         address: '서울특별시 성북구 고려대학교',
-        score: 2.5,
+        rating: 2.5,
         lat: 37.3575704,
         lon: 127.102399,
       });
