@@ -44,7 +44,7 @@ export default {
         el =>
           new value.maps.InfoWindow({
             content: `
-        <div style="padding: 10px;">
+        <div onclick="console.log('a');" style="padding: 10px;">
           <span>${el.name}</span>
           <span>${el.category}</span>
           <span class="text-red-500 mr-1">★</span>
@@ -62,6 +62,9 @@ export default {
           }),
       );
       for (let i = 0; i < this.markers.length; i++) {
+        value.maps.Event.addListener(this.map, 'click', () => {
+          this.infoWindows[i].close();
+        });
         value.maps.Event.addListener(this.markers[i], 'click', () => {
           if (this.infoWindows[i].getMap()) {
             this.infoWindows[i].close();
