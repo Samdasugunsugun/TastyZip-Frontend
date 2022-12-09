@@ -52,6 +52,18 @@ const store = createStore({
           content: '정말 맛있어요',
           rating: 2.5,
         },
+        {
+          content: '정말 맛있어요',
+          rating: 2.0,
+        },
+        {
+          content: '정말 맛있어요',
+          rating: 1.5,
+        },
+        {
+          content: '정말 맛있어요',
+          rating: 0.5,
+        },
       ],
     };
   },

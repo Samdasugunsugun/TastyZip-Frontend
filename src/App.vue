@@ -6,7 +6,9 @@ const backgroundColor = ref(colorScheme.COLOR_D);
 </script>
 
 <template>
-  <RouterView />
+  <div class="w-1/2 m-auto">
+    <RouterView />
+  </div>
 </template>
 
 <style>
