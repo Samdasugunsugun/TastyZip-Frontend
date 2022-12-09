@@ -30,6 +30,8 @@ export default {
 
       this.map = new value.maps.Map('map', {
         center: new naver.maps.LatLng(this.stores[0].lat, this.stores[0].lon), //지도의 초기 중심 좌표
+        zoom: 13,
+        zoomControl: true,
       });
       this.markers = this.stores.map(
         el =>
