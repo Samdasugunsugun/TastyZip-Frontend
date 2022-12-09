@@ -1,5 +1,5 @@
 <template>
-  <div id="map1" style="width: 100%; height: 400px" ref="map"></div>
+  <div id="map" style="width: 100%; height: 400px" ref="map"></div>
 </template>
 
 <script>
@@ -28,7 +28,9 @@ export default {
     naver(value) {
       if (!value) return;
 
-      this.map = new value.maps.Map('map1');
+      this.map = new value.maps.Map('map', {
+        center: new naver.maps.LatLng(this.stores[0].lat, this.stores[0].lon), //지도의 초기 중심 좌표
+      });
       this.markers = this.stores.map(
         el =>
           new value.maps.Marker({
@@ -40,11 +42,21 @@ export default {
         el =>
           new value.maps.InfoWindow({
             content: `
-        <div>
+        <div style="padding: 10px;">
           <span>${el.name}</span>
+          <span>${el.category}</span>
+          <span class="text-red-500 mr-1">★</span>
           <span>${el.rating}</span>
         </div>
       `,
+            maxWidth: 700,
+            backgroundColor: '#fff',
+            borderColor: '#000000',
+            borderWidth: 3,
+            anchorSize: new naver.maps.Size(20, 5),
+            anchorSkew: true,
+            anchorColor: '#fff',
+            pixelOffset: new naver.maps.Point(0, -5),
           }),
       );
       for (let i = 0; i < this.markers.length; i++) {
