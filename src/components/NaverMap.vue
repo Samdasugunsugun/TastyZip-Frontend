@@ -27,12 +27,17 @@ export default {
   watch: {
     naver(value) {
       if (!value) return;
-
-      this.map = new value.maps.Map('map', {
-        center: new naver.maps.LatLng(this.stores[0].lat, this.stores[0].lon), //지도의 초기 중심 좌표
+      
+      const option = {
         zoom: 13,
         zoomControl: true,
-      });
+      };
+
+      if (this.stores.length > 0) {
+        option.center = new naver.maps.LatLng(this.stores[0].lat, this.stores[0].lon); //지도의 초기 중심 좌표
+      }
+
+      this.map = new value.maps.Map('map', option);
       this.markers = this.stores.map(
         el =>
           new value.maps.Marker({
