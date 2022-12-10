@@ -51,6 +51,10 @@ import NaverMap from '../components/NaverMap.vue';
 import ReviewItem from '../components/ReviewItem.vue';
 export default {
   components: { NaverMap, ReviewItem },
+  mounted() {
+    this.$store.dispatch('getDetail', this.$route.params.id);
+    this.$store.dispatch('getReviews', this.$route.params.id);
+  },
   methods: {
     routeToHome() {
       this.$router.push({ path: `/` });
