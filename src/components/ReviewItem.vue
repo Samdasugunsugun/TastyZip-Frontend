@@ -6,9 +6,9 @@
       </div>
       <p>{{ content }}</p>
     </div>
-    <div class="flex items-start">
+    <div class="flex items-start min-w-[80px]">
       <span class="text-red-500 block mr-1">★</span>
-      <span class="text-gray-400">{{ rating }} / 5.0</span>
+      <span class="text-gray-400">{{ rating.toFixed(1) }} / 5.0</span>
     </div>
   </div>
 </template>

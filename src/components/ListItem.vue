@@ -14,7 +14,7 @@
     </div>
     <div class="flex justify-between text-base">
       <span>{{ address }}</span>
-      <span class="text-gray-400 text-sm">{{ rating }} / 5</span>
+      <span class="text-gray-400 text-sm">{{ rating.toFixed(1) }} / 5</span>
     </div>
   </div>
 </template>

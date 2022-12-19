@@ -24,30 +24,35 @@ export default {
       infoWindows: [],
     };
   },
+  computed: {
+    isReady() {
+      return this.naver && this.stores;
+    }
+  },
   watch: {
-    naver(value) {
-      if (!value) return;
+    isReady() {
+      if (!this.naver) return;
       
       const option = {
         zoom: 13,
         zoomControl: true,
       };
-
+      
       if (this.stores.length > 0) {
         option.center = new naver.maps.LatLng(this.stores[0].lat, this.stores[0].lon); //지도의 초기 중심 좌표
       }
 
-      this.map = new value.maps.Map('map', option);
+      this.map = new this.naver.maps.Map('map', option);
       this.markers = this.stores.map(
         el =>
-          new value.maps.Marker({
-            position: new value.maps.LatLng(el.lat, el.lon),
+          new this.naver.maps.Marker({
+            position: new this.naver.maps.LatLng(el.lat, el.lon),
             map: this.map,
           }),
       );
       this.infoWindows = this.stores.map(
         el =>
-          new value.maps.InfoWindow({
+          new this.naver.maps.InfoWindow({
             content: `
         <div onclick="console.log('a');" style="padding: 10px;">
           <span>${el.name}</span>
@@ -67,10 +72,10 @@ export default {
           }),
       );
       for (let i = 0; i < this.markers.length; i++) {
-        value.maps.Event.addListener(this.map, 'click', () => {
+        this.naver.maps.Event.addListener(this.map, 'click', () => {
           this.infoWindows[i].close();
         });
-        value.maps.Event.addListener(this.markers[i], 'click', () => {
+        this.naver.maps.Event.addListener(this.markers[i], 'click', () => {
           if (this.infoWindows[i].getMap()) {
             this.infoWindows[i].close();
           } else {
